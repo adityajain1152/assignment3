@@ -1,0 +1,41 @@
+{% extends 'inventory/base.html' %}
+{% block body %}
+
+<br>
+
+<div class="container p-3">
+<table class="table">
+    <tr class="table-primary">
+        <th>Machine/Tools Name</th>
+        <th> Description </th>
+        <th>Availability</th>
+        <th>Price</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for Machine in all_machines %}
+    <tr class="table-success">
+    <td>{{Machine.Name}}</td>
+    <td>{{Machine.Description}}</td>
+    <td>{{Machine.Availability}}</td>
+    <td>{{Machine.Price}}</td>
+    <td><a href="{% url 'edit-machine' Machine.pk %}" class="btn btn-dark">
+          <i class="fas fa-pen"></i> Edit 
+        </a></td>
+    <td><a href="{% url 'delete-machine' Machine.pk %}" class="btn btn-danger">
+          <i class="fas fa-trash"></i> Delete 
+        </a></td>   
+    </tr>
+
+    {% endfor %}
+    <tr>
+    <td>
+    <a href="{% url 'add-machine' %}" class="btn btn-warning">
+          <i class="fas fa-plus-circle"></i> Add Machine
+        </a></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</div>
+{% endblock body %}

@@ -1,0 +1,20 @@
+{% extends 'inventory/base.html' %}
+
+{% block body %}
+
+<div class="p-3"></div>
+<div class="p-3"></div>
+
+
+<div class="row">
+<div class="col-2"></div>
+<form class="col-10 pt-3" action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <div class="p-3"></div>
+    <input class="btn btn-success mr-3" type="submit" value="Confirm">
+  
+   <a href={% url 'index' %} class="btn btn-danger ml-3">Cancel</a>
+
+</form>
+</div>
+{% endblock body %}
